@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 
-  type: 
+  user_id: 1
+  season: MyString
   year: MyString
+  total_credits: 1
 
 two:
-  user_id: 
-  type: 
+  user_id: 1
+  season: MyString
   year: MyString
+  total_credits: 1

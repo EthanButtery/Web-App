@@ -10,11 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_23_031707) do
-
+ActiveRecord::Schema.define(version: 2018_11_24_215438) do
+  
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+  
+  create_table "courses", force: :cascade do |t|
+    t.integer "semester_id"
+    t.string "name"
+    t.string "department"
+    t.string "instructor"
+    t.integer "credits"
+    t.string "grade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "semesters", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "season"
+    t.string "year"
+    t.integer "total_credits"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

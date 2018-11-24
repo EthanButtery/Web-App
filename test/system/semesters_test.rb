@@ -14,7 +14,8 @@ class SemestersTest < ApplicationSystemTestCase
     visit semesters_url
     click_on "New Semester"
 
-    fill_in "Type", with: @semester.type
+    fill_in "Season", with: @semester.season
+    fill_in "Total Credits", with: @semester.total_credits
     fill_in "User", with: @semester.user_id
     fill_in "Year", with: @semester.year
     click_on "Create Semester"
@@ -27,7 +28,8 @@ class SemestersTest < ApplicationSystemTestCase
     visit semesters_url
     click_on "Edit", match: :first
 
-    fill_in "Type", with: @semester.type
+    fill_in "Season", with: @semester.season
+    fill_in "Total Credits", with: @semester.total_credits
     fill_in "User", with: @semester.user_id
     fill_in "Year", with: @semester.year
     click_on "Update Semester"

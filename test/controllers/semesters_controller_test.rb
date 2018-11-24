@@ -17,7 +17,7 @@ class SemestersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create semester" do
     assert_difference('Semester.count') do
-      post semesters_url, params: { semester: { type: @semester.type, user_id: @semester.user_id, year: @semester.year } }
+      post semesters_url, params: { semester: { season: @semester.season, total_credits: @semester.total_credits, user_id: @semester.user_id, year: @semester.year } }
     end
 
     assert_redirected_to semester_url(Semester.last)
@@ -34,7 +34,7 @@ class SemestersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update semester" do
-    patch semester_url(@semester), params: { semester: { type: @semester.type, user_id: @semester.user_id, year: @semester.year } }
+    patch semester_url(@semester), params: { semester: { season: @semester.season, total_credits: @semester.total_credits, user_id: @semester.user_id, year: @semester.year } }
     assert_redirected_to semester_url(@semester)
   end
 

@@ -13,17 +13,22 @@
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.number_field :user_id %>
   </div>
 
   <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type %>
+    <%= form.label :season %>
+    <%= form.text_field :season %>
   </div>
 
   <div class="field">
     <%= form.label :year %>
     <%= form.text_field :year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_credits %>
+    <%= form.number_field :total_credits %>
   </div>
 
   <div class="actions">
