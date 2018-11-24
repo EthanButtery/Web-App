@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @semester.user_id %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @semester.type %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @semester.year %>
+</p>
+
+<%= link_to 'Edit', edit_semester_path(@semester) %> |
+<%= link_to 'Back', semesters_path %>
