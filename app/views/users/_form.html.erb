@@ -10,11 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
     <%= form.label :id %>
     <%= form.number_field :id %>
   </div>
+
 
   <div class="field">
     <%= form.label :username %>
@@ -29,7 +30,8 @@
   <div class="field">
     <%= form.label :password_confirmation %>
     <%= form.password_field :password_confirmation %>
-
+  </div>
+  
   <div class="actions">
     <%= form.submit %>
   </div>

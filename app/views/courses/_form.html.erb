@@ -12,13 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :semester_id %>
-    <%= form.text_field :semester_id %>
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
   </div>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :semester_id %>
+    <%= form.number_field :semester_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :course_name %>
+    <%= form.text_field :course_name %>
   </div>
 
   <div class="field">
@@ -33,7 +38,7 @@
 
   <div class="field">
     <%= form.label :credits %>
-    <%= form.text_field :credits %>
+    <%= form.number_field :credits %>
   </div>
 
   <div class="field">

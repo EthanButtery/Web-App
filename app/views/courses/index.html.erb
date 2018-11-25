@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Semester</th>
-      <th>Name</th>
+      <th>Course name</th>
       <th>Department</th>
       <th>Instructor</th>
       <th>Credits</th>
@@ -19,7 +19,7 @@
     <% @courses.each do |course| %>
       <tr>
         <td><%= course.semester_id %></td>
-        <td><%= course.name %></td>
+        <td><%= course.course_name %></td>
         <td><%= course.department %></td>
         <td><%= course.instructor %></td>
         <td><%= course.credits %></td>

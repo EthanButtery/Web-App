@@ -5,6 +5,6 @@ class User < ApplicationRecord
     validates :username, uniqueness: true
     validates :password, length: { minimum: 4 }
     def num_credits
-        self.semesters.credit_sum
+        self.courses.sum(:credits)
     end
 end

@@ -14,11 +14,11 @@ class CoursesTest < ApplicationSystemTestCase
     visit courses_url
     click_on "New Course"
 
+    fill_in "Couse Name", with: @course.couse_name
     fill_in "Credits", with: @course.credits
     fill_in "Department", with: @course.department
     fill_in "Grade", with: @course.grade
     fill_in "Instructor", with: @course.instructor
-    fill_in "Name", with: @course.name
     fill_in "Semester", with: @course.semester_id
     click_on "Create Course"
 
@@ -30,11 +30,11 @@ class CoursesTest < ApplicationSystemTestCase
     visit courses_url
     click_on "Edit", match: :first
 
+    fill_in "Couse Name", with: @course.couse_name
     fill_in "Credits", with: @course.credits
     fill_in "Department", with: @course.department
     fill_in "Grade", with: @course.grade
     fill_in "Instructor", with: @course.instructor
-    fill_in "Name", with: @course.name
     fill_in "Semester", with: @course.semester_id
     click_on "Update Course"
 

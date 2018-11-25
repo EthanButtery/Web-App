@@ -1,11 +1,13 @@
 class Semester < ApplicationRecord
     belongs_to :user
     has_many :courses
-    validates :type, :year, presence: true, uniqueness: true
+    validates :term, :year, presence: true, uniqueness: true
     
     def credit_sum
         self.courses.sum(:credits)
     end
     
-    Semester.update_attribute(total_credits, credit_sum)
+    def gpa
+        @Grade_list = courses.select(:grade)
+    end
 end

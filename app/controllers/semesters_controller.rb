@@ -1,10 +1,10 @@
 class SemestersController < ApplicationController
-  before_action :set_semester, only: [:show, :edit, :update, :destroy]
+   before_action :set_semester, only: [:show, :edit, :update, :destroy]
 
   # GET /semesters
   # GET /semesters.json
   def index
-    @semesters = Semester.all
+    @semesters = Semester.all.includes(:courses)
   end
 
   # GET /semesters/1
@@ -69,6 +69,6 @@ class SemestersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def semester_params
-      params.require(:semester).permit(:id, :user_id, :season, :year)
+      params.require(:semester).permit(:id, :user_id, :term, :year)
     end
 end
