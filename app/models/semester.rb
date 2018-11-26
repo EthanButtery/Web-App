@@ -8,6 +8,7 @@ class Semester < ApplicationRecord
     end
     
     def gpa
-        @Grade_list = courses.select(:grade)
+        @GradeList = courses.select(:grade).to_a
     end
+    
 end
