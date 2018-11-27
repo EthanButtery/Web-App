@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Semesters</h1>
+<div class="container">
+  <nav>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to 'New Semester', new_semester_path %></li>
+    </ul>
+  </nav>
+</div>
 
 <table>
   <thead>
@@ -76,4 +83,3 @@
 
 <br>
 
-<%= link_to 'New Semester', new_semester_path %>
