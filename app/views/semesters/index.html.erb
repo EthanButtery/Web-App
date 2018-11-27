@@ -68,9 +68,12 @@
               <%= totalgradepointstimescredithours/totalcredithours %>
             <% end %>
         </td>
-        <td><%= link_to 'Show', semester, :class => "btn btn-light"%></td>
-        <td><%= link_to 'Edit', edit_semester_path(semester),:class => "btn btn-light"%></td>
-        <td><%= link_to 'Destroy', semester, method: :delete, data: { confirm: 'Are you sure?' },:class => "btn btn-light" %></td>
+        <td><div>
+          <%= link_to 'Show', semester, :class => "btn btn-light"%>
+          <%= link_to 'Edit', edit_semester_path(semester),:class => "btn btn-light"%>
+          <%= link_to 'Destroy', semester, method: :delete, data: { confirm: 'Are you sure?' },:class => "btn btn-light" %>
+        </div></td>
+
       <% semester.courses.each do |course| %>
         <tr>
           <td><%= course.semester_id %></td>
