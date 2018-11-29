@@ -1,0 +1,74 @@
+    <tbody>
+    <% @semesters.each do |semester| %>
+    <thead class="thead-dark">
+      <tr>
+        <th><%= semester.user_id %></td>
+        <th><%= semester.term %></td>
+        <th><%= semester.year %></td>
+        <th><p>total credits: <%= semester.credit_sum %></p></td>
+        <% totalcredithours =0%>
+        <% totalgradepointstimescredithours = 0%>
+        <th>
+          <% semester.courses.each do |course|%>
+            <% totalcredithours = totalcredithours + course.credits%>
+            <% if course.grade == "A"%>
+              <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*4.00%>
+            <% elsif course.grade == "A-"%>
+              <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*3.70%>
+            <% elsif course.grade == "B+"%>
+              <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*3.33%>
+            <% elsif course.grade == "B"%>
+              <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*3.00%>
+            <% elsif course.grade == "B-"%>
+              <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*2.70%>
+            <% elsif course.grade == "C+"%>
+              <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*2.30%>
+            <% elsif course.grade == "C"%>
+              <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*2.00%>
+            <% elsif course.grade == "C-"%>
+              <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*1.70%>
+            <% elsif course.grade == "D+"%>
+              <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*1.30%>
+            <% elsif course.grade == "D"%>
+              <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*1.00%>
+            <% elsif course.grade == "D-"%>
+              <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*0.70%>
+            <% else%>
+              <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*0%>
+            <% end %>
+          <% end %>
+            <% if totalcredithours == 0 %>
+              <p>GPA: 0</p>
+            <% else %>
+              <p>GPA: <%= totalgradepointstimescredithours/totalcredithours %></p>
+            <% end %>
+        </th>
+        <th>
+          <div>
+            <%= link_to 'Show', semester, :class => "btn btn-light"%>
+            <%= link_to 'Edit', edit_semester_path(semester),:class => "btn btn-light"%>
+            <%= link_to 'Destroy', semester, method: :delete, data: { confirm: 'Are you sure?' },:class => "btn btn-light" %>
+          </div>
+        </th>
+      </tr>
+    </thead>
+      <tr>
+        <th>User</th>
+        <th>Class</th>
+        <th>Department</th>
+        <th>Professor</th>
+        <th>Credit Hours</th>
+        <th>Grade</th>
+      </tr>
+      <% semester.courses.each do |course| %>
+        <tr>
+          <td><%= course.semester_id %></td>
+          <td><%= course.course_name %></td>
+          <td><%= course.department %></td>
+          <td><%= course.instructor %></td>
+          <td><%= course.credits %></td>
+          <td><%= course.grade %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    </tbody>
