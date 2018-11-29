@@ -58,7 +58,9 @@
               <% semestergpa = semestergpa + semestergpatemp%>
               <% totalsemesters = totalsemesters + 1%>
           <% end %>
-          <%= semestergpa/totalsemesters%>
+          <% if totalsemesters > 0 %>
+            <%= semestergpa/totalsemesters%>
+          <% end %>
         </td>
         <td><%= user.password_digest %></td>
         <td><%= link_to 'Show', user %></td>

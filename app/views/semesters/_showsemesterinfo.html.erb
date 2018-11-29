@@ -3,7 +3,6 @@
     <%if semester.user_id == current_user.id%>
       <thead class="thead-dark">
         <tr>
-          <th><%= semester.user_id %></td>
           <th><%= semester.term %></td>
           <th><%= semester.year %></td>
           <th><p>total credits: <%= semester.credit_sum %></p></td>
@@ -54,7 +53,6 @@
         </tr>
       </thead>
         <tr>
-          <th>User</th>
           <th>Class</th>
           <th>Department</th>
           <th>Professor</th>
@@ -63,7 +61,6 @@
         </tr>
         <% semester.courses.each do |course| %>
           <tr>
-            <td><%= course.semester_id %></td>
             <td><%= course.course_name %></td>
             <td><%= course.department %></td>
             <td><%= course.instructor %></td>

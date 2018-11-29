@@ -34,7 +34,7 @@ class SemestersController < ApplicationController
   # POST /semesters
   # POST /semesters.json
   def create
-    @semester = Semester.new(semester_params)
+    @semester = Semester.new(semester_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @semester.save
@@ -79,6 +79,8 @@ class SemestersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def semester_params
-      params.require(:semester).permit(:id, :user_id, :term, :year)
+      if logged_in?
+        params.require(:semester).permit(@current_user.id, :id, :term, :year)
+      end
     end
 end

@@ -1,7 +1,8 @@
 class Semester < ApplicationRecord
     belongs_to :user
     has_many :courses
-    validates :term, :year, presence: true, uniqueness: true
+    
+    validates :user_id, uniqueness: {scope: [:term, :year]}
     
     def credit_sum
         self.courses.sum(:credits)
@@ -11,5 +12,4 @@ class Semester < ApplicationRecord
         @GradeList = courses.select(:grade).to_a
         
     end
-    
 end
