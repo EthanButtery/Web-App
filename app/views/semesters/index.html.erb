@@ -1,39 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="jumbotron">Semesters</h1>
-<div class="container">
-  <nav class="nav navbar-nav navbar-right">
-      <div>
-        <%= link_to 'Add Courses', new_course_path,:class => "btn btn-primary"%>
-        <%= link_to 'New Semester', new_semester_path,:class => "btn btn-primary"%>
-      </div>
-  </nav>
-</div>
-
-<table>
+<h1>Semesters</h1>
+<table class="table table-bordered table-hover">
   <div class="container">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>User</th>
-        <th>Term</th>
-        <th>Year</th>
-        <th>Total credits</th>
-        <th>GPA</th>
-        <th>Actions</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
     <tbody>
     <% @semesters.each do |semester| %>
+    <thead class="thead-dark">
       <tr>
-        <td><%= semester.user_id %></td>
-        <td><%= semester.term %></td>
-        <td><%= semester.year %></td>
-        <td><%= semester.credit_sum %></td>
+        <th><%= semester.user_id %></td>
+        <th><%= semester.term %></td>
+        <th><%= semester.year %></td>
+        <th><p>total credits: <%= semester.credit_sum %></p></td>
         <% totalcredithours =0%>
         <% totalgradepointstimescredithours = 0%>
-        <td>
+        <th>
           <% semester.courses.each do |course|%>
             <% totalcredithours = totalcredithours + course.credits%>
             <% if course.grade == "A"%>
@@ -63,17 +43,28 @@
             <% end %>
           <% end %>
             <% if totalcredithours == 0 %>
-              <%= 0 %>
+              <p>GPA: 0</p>
             <% else %>
-              <%= totalgradepointstimescredithours/totalcredithours %>
+              <p>GPA: <%= totalgradepointstimescredithours/totalcredithours %></p>
             <% end %>
-        </td>
-        <td><div>
-          <%= link_to 'Show', semester, :class => "btn btn-light"%>
-          <%= link_to 'Edit', edit_semester_path(semester),:class => "btn btn-light"%>
-          <%= link_to 'Destroy', semester, method: :delete, data: { confirm: 'Are you sure?' },:class => "btn btn-light" %>
-        </div></td>
-
+        </th>
+        <th>
+          <div>
+            <%= link_to 'Show', semester, :class => "btn btn-light"%>
+            <%= link_to 'Edit', edit_semester_path(semester),:class => "btn btn-light"%>
+            <%= link_to 'Destroy', semester, method: :delete, data: { confirm: 'Are you sure?' },:class => "btn btn-light" %>
+          </div>
+        </th>
+      </tr>
+    </thead>
+      <tr>
+        <th>User</th>
+        <th>Class</th>
+        <th>Department</th>
+        <th>Professor</th>
+        <th>Credit Hours</th>
+        <th>Grade</th>
+      </tr>
       <% semester.courses.each do |course| %>
         <tr>
           <td><%= course.semester_id %></td>
@@ -87,4 +78,12 @@
     <% end %>
     </tbody>
 </table>
+<div class="container">
+  <nav class="nav navbar-nav navbar-right">
+      <div>
+        <%= link_to 'Add Courses', new_course_path,:class => "btn btn-primary"%>
+        <%= link_to 'New Semester', new_semester_path,:class => "btn btn-primary"%>
+      </div>
+  </nav>
+</div>
 
