@@ -7,4 +7,7 @@ class User < ApplicationRecord
     def num_credits
         self.courses.sum(:credits)
     end
+    def grades
+        self.courses.select(:grade).to_a
+    end
 end
