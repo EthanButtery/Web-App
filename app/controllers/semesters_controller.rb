@@ -1,8 +1,18 @@
 class SemestersController < ApplicationController
    before_action :set_semester, only: [:show, :edit, :update, :destroy]
+   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /semesters
   # GET /semesters.json
+  
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please log in!"
+      redirect_to login_url
+    end
+  end
+  
   def index
     @semesters = Semester.all.includes(:courses)
   end

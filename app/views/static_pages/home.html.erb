@@ -1,0 +1,9 @@
+<div class="center jumbotron">
+  <% if !logged_in? %>
+      <h1>Grade Report App</h1>
+
+      <%= link_to "Sign up now!", 'signup', class: "btn btn-lg btn-primary" %>
+  <% else %>
+      <p> On this page we will display User's credits with a progres bar and GPA</p>
+  <% end %>
+</div>
