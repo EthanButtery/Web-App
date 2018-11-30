@@ -13,7 +13,13 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery3
+//= require jquery
+//= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-sprockets
 //= require_tree .
+$(document).on('turbolinks:load',function() {
+    $('#search').on('keyup', function() {
+        $('#search_form').submit();
+    });
+});

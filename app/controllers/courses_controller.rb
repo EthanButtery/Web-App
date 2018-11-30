@@ -3,6 +3,16 @@ class CoursesController < ApplicationController
 
   # GET /courses
   # GET /courses.json
+  
+  def search
+    name = params[:search] + '%'
+    @courses = Course.where(['course_name LIKE ?', name])
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  
   def index
     @courses = Course.all
   end
