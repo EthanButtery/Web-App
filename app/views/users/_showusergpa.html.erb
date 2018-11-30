@@ -1,6 +1,6 @@
     <tbody>
       <tr>
-        <% totalcredithours =0%>
+        <% totalcredithours = 0%>
         <% totalgradepointstimescredithours = 0%>
         <th>
           <% @users.each do |course|%>
@@ -30,7 +30,6 @@
             <% else%>
               <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*0%>
             <% end %>
-          <% end %>
             <% if totalcredithours == 0 %>
               <p>GPA: 0</p>
             <% else %>

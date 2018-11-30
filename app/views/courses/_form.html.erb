@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :semester_id %>
-    <%= form.number_field :semester_id %>
+    <%= form.collection_select :semester_id, Semester.where(user_id: current_user.id), :id, :term,{:include_blank => "Please select a semester"}%>
   </div>
 
   <div class="field">
@@ -43,7 +43,7 @@
 
   <div class="field">
     <%= form.label :grade %>
-    <%= form.text_field :grade %>
+    <%= form.select :grade, ['A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F'], :prompt => 'Select a grade'%>
   </div>
 
   <div class="actions">

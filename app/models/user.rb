@@ -10,4 +10,5 @@ class User < ApplicationRecord
     def grades
         self.courses.select(:grade).to_a
     end
+
 end
