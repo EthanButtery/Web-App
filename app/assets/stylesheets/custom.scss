@@ -392,6 +392,11 @@ tables tfoot td {
   font-size: 14px;
 }
 
+.progress {
+    border: 1px solid rgba(0, 0, 0, 1);
+    border-radius: 10px;
+}
+
 .progress span {
     position:absolute;
     right:0;
