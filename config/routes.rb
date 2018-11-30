@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :semesters
   resources :users
   get '/user', to: 'users#index'
-  root 'static_pages#home'
+  root 'home#home'
   get  '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
