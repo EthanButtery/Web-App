@@ -6,8 +6,8 @@
       <h1><%= current_user.username %></h1>
       <%= render 'shared/gpa' %>
       <div align = "center">
-        <%= render 'shared/progress_bar' %>
+        <%= render 'progress_bar' %>
       </div>
-      <p><%= current_user.num_credits %>/120 Credits</p>
+      <p><%= @credits %>/120 Credits</p>
   <% end %>
 </div>

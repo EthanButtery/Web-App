@@ -189,6 +189,12 @@ form {
   margin: 10px auto;
 }
 
+form input[type='submit']  {
+  display: block;
+  margin: auto;
+  width: 200px;
+}
+
 form.searchbox {
     padding-top: 10px;
     width: 640px;

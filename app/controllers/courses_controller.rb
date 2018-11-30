@@ -1,8 +1,16 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-
+  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
   # GET /courses
   # GET /courses.json
+  
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please log in!"
+      redirect_to login_url
+    end
+  end
   
   def search
     name = params[:search] + '%'
@@ -38,7 +46,8 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
+        format.html { redirect_to @course }
+        flash[:success] = 'Course successfully created'
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
@@ -52,7 +61,8 @@ class CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
+        format.html { redirect_to @course }
+        flash[:success] = 'Course successfully updated'
         format.json { render :show, status: :ok, location: @course }
       else
         format.html { render :edit }
@@ -66,7 +76,8 @@ class CoursesController < ApplicationController
   def destroy
     @course.destroy
     respond_to do |format|
-      format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
+      format.html { redirect_to courses_url }
+      flash[:success] = 'Course successfully destroyed'
       format.json { head :no_content }
     end
   end
