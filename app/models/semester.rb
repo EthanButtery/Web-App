@@ -7,6 +7,9 @@ class Semester < ApplicationRecord
     def credit_sum
         self.courses.sum(:credits)
     end
+    def termAndYear
+        "#{term} #{year}"
+    end
     
     def gpa
         @GradeList = courses.select(:grade).to_a
