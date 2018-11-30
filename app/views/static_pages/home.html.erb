@@ -1,60 +1,12 @@
 <div class="center jumbotron">
   <% if !logged_in? %>
       <h1>Grade Report App</h1>
-
       <%= link_to "Sign up now!", 'signup', class: "btn btn-lg btn-primary" %>
   <% else %>
       <h1><%= current_user.username %></h1>
-      <% totalsemesters =0%>
-      <% semestergpa =0%>
-      <% current_user.semesters.each do |semester|%>
-        <% totalcredithours =0%>
-        <% totalgradepointstimescredithours = 0%>
-            <% semester.courses.each do |course|%>
-              <% totalcredithours = totalcredithours + course.credits%>
-              <% if course.grade == "A"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*4.00%>
-              <% elsif course.grade == "A-"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*3.70%>
-              <% elsif course.grade == "B+"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*3.33%>
-              <% elsif course.grade == "B"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*3.00%>
-              <% elsif course.grade == "B-"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*2.70%>
-              <% elsif course.grade == "C+"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*2.30%>
-              <% elsif course.grade == "C"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*2.00%>
-              <% elsif course.grade == "C-"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*1.70%>
-              <% elsif course.grade == "D+"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*1.30%>
-              <% elsif course.grade == "D"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*1.00%>
-              <% elsif course.grade == "D-"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*0.70%>
-              <% else%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*0%>
-              <% end %>
-              <% end %>
-              <% if totalcredithours == 0 %>
-                <% semestergpatemp = 0 %>
-              <% else %>
-                <% semestergpatemp = totalgradepointstimescredithours/totalcredithours %>
-              <% end %>
-          <% semestergpa = semestergpa + semestergpatemp%>
-          <% totalsemesters = totalsemesters + 1%>
-      <% end %>
-      <% if totalsemesters > 0 %>
-       <p>GPA: <%=semestergpa/totalsemesters%></p>
-      <% end %>
+      <%= render 'shared/gpa' %>
       <div align = "center">
-        <div class="progress" style="width: 25%">
-          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="<%= current_user.num_credits %>" aria-valuemin="0" aria-valuemax="120" style="width: <%= current_user.num_credits %>%">
-            <span><%= current_user.num_credits %> /120</span>
-          </div>
-        </div>
+        <%= render 'shared/progress_bar' %>
       </div>
       <p><%= current_user.num_credits %>/120 Credits</p>
   <% end %>
