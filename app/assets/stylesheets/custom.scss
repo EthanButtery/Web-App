@@ -385,3 +385,10 @@ table tfoot {
 tables tfoot td {
   font-size: 14px;
 }
+
+.progress span {
+    position:absolute;
+    right:0;
+    left:0;
+    color: black;
+}
