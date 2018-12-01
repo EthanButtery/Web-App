@@ -40,7 +40,7 @@
               <% if totalcredithours == 0 %>
                 <p>GPA: 0</p>
               <% else %>
-                <p>GPA: <%= totalgradepointstimescredithours/totalcredithours %></p>
+                <p>GPA: <%= number_with_precision(totalgradepointstimescredithours/totalcredithours, :precision => 2) %></p>
               <% end %>
           </th>
           <th>

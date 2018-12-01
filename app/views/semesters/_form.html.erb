@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :term %>
-    <%= form.text_field :term %>
+    <%= form.select :term, ['Fall','Winter','Spring','Summer'], :prompt => 'Select a term'%>
   </div>
 
   <div class="field">

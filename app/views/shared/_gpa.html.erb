@@ -1,44 +1,35 @@
-<% totalsemesters =0%>
-      <% semestergpa =0%>
-      <% current_user.semesters.each do |semester|%>
-        <% totalcredithours =0%>
-        <% totalgradepointstimescredithours = 0%>
-            <% semester.courses.each do |course|%>
-              <% totalcredithours = totalcredithours + course.credits%>
-              <% if course.grade == "A"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*4.00%>
-              <% elsif course.grade == "A-"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*3.70%>
-              <% elsif course.grade == "B+"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*3.33%>
-              <% elsif course.grade == "B"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*3.00%>
-              <% elsif course.grade == "B-"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*2.70%>
-              <% elsif course.grade == "C+"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*2.30%>
-              <% elsif course.grade == "C"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*2.00%>
-              <% elsif course.grade == "C-"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*1.70%>
-              <% elsif course.grade == "D+"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*1.30%>
-              <% elsif course.grade == "D"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*1.00%>
-              <% elsif course.grade == "D-"%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*0.70%>
-              <% else%>
-                <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*0%>
-              <% end %>
-              <% end %>
-              <% if totalcredithours == 0 %>
-                <% semestergpatemp = 0 %>
-              <% else %>
-                <% semestergpatemp = totalgradepointstimescredithours/totalcredithours %>
-              <% end %>
-          <% semestergpa = semestergpa + semestergpatemp%>
-          <% totalsemesters = totalsemesters + 1%>
+<% semestergpa =0%>
+<% totalcredithours =0%>
+<% totalgradepointstimescredithours = 0%>
+<% current_user.semesters.each do |semester|%>
+      <% semester.courses.each do |course|%>
+        <% totalcredithours = totalcredithours + course.credits%>
+        <% if course.grade == "A"%>
+          <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*4.00%>
+        <% elsif course.grade == "A-"%>
+          <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*3.70%>
+        <% elsif course.grade == "B+"%>
+          <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*3.33%>
+        <% elsif course.grade == "B"%>
+          <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*3.00%>
+        <% elsif course.grade == "B-"%>
+          <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*2.70%>
+        <% elsif course.grade == "C+"%>
+          <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*2.30%>
+        <% elsif course.grade == "C"%>
+          <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*2.00%>
+        <% elsif course.grade == "C-"%>
+          <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*1.70%>
+        <% elsif course.grade == "D+"%>
+          <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*1.30%>
+        <% elsif course.grade == "D"%>
+          <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*1.00%>
+        <% elsif course.grade == "D-"%>
+          <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*0.70%>
+        <% else%>
+          <% totalgradepointstimescredithours = totalgradepointstimescredithours + course.credits*0%>
+        <% end %>
       <% end %>
-      <% if totalsemesters > 0 %>
-       <p>GPA: <%=semestergpa/totalsemesters%></p>
-      <% end %>
+<% end %>
+<% semestergpa = totalgradepointstimescredithours/totalcredithours %>
+<%= number_with_precision(semestergpa, :precision => 2) %>
