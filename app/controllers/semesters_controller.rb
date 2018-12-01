@@ -38,7 +38,7 @@ class SemestersController < ApplicationController
 
     respond_to do |format|
       if @semester.save
-        format.html { redirect_to @semester }
+        format.html { redirect_to '/semesters' }
         flash[:success] = 'Semester successfully created'
         format.json { render :show, status: :created, location: @semester }
       else

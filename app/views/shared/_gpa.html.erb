@@ -31,5 +31,7 @@
         <% end %>
       <% end %>
 <% end %>
-<% semestergpa = totalgradepointstimescredithours/totalcredithours %>
-<%= number_with_precision(semestergpa, :precision => 2) %>
+<% if totalcredithours > 0 %>
+  <% semestergpa = totalgradepointstimescredithours/totalcredithours %>
+<% end %>
+<p> GPA: <%= number_with_precision(semestergpa, :precision => 2) %> </p>

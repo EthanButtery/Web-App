@@ -1,12 +1,14 @@
 <tr>
-    <td><%= course.semester.term %></td>
-    <td><%= course.semester.year %></td>
-    <td><%= course.course_name %></td>
-    <td><%= course.department %></td>
-    <td><%= course.instructor %></td>
-    <td><%= course.credits %></td>
-    <td><%= course.grade %></td>
-    <td><%= link_to 'Show', course %></td>
-    <td><%= link_to 'Edit', edit_course_path(course) %></td>
-    <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if current_user.id == course.user.id %>
+        <td><%= course.semester.term %></td>
+        <td><%= course.semester.year %></td>
+        <td><%= course.course_name %></td>
+        <td><%= course.department %></td>
+        <td><%= course.instructor %></td>
+        <td><%= course.credits %></td>
+        <td><%= course.grade %></td>
+        <td><%= link_to 'Show', course %></td>
+        <td><%= link_to 'Edit', edit_course_path(course) %></td>
+        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
 </tr>

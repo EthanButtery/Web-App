@@ -1,8 +1,10 @@
 class Semester < ApplicationRecord
     belongs_to :user
-    has_many :courses
+    has_many :courses, :dependent => :destroy
     
     validates :user_id, uniqueness: {scope: [:term, :year]}
+    validates :term, presence: true
+    validates :year, presence: true
     
     def credit_sum
         self.courses.sum(:credits)

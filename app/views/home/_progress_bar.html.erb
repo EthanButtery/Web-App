@@ -1,5 +1,5 @@
 <div class="progress" style="width: 25%">
-    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="<%= @credits %>" aria-valuemin="0" aria-valuemax="120" style="width: <%= @credits/1.2 %>%">
-        <span><%= @credits %> /120</span>
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="<%= @credits/1.2 %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @credits/1.2 %>%">
+        <span><%= number_with_precision(@credits/1.2, :precision => 2) %> %</span>
     </div>
 </div>

@@ -46,7 +46,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course }
+        format.html { redirect_to '/courses' }
         flash[:success] = 'Course successfully created'
         format.json { render :show, status: :created, location: @course }
       else

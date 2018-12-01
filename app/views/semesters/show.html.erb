@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @semester.user_id %>
-</p>
-
-<p>
   <strong>Term:</strong>
   <%= @semester.term %>
 </p>
@@ -17,7 +12,7 @@
 
 <p>
   <strong>Total credits:</strong>
-  <%= @semester.total_credits %>
+  <%= @semester.credit_sum %>
 </p>
 
 <%= link_to 'Edit', edit_semester_path(@semester) %> |
