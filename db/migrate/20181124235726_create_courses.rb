@@ -8,10 +8,8 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.integer :credits
       t.string :grade
       t.integer :user_id
-<<<<<<< HEAD
 
-=======
->>>>>>> 677d6a6a6cf79ee7739e55c81d768f6f581e1513
+
       t.timestamps
     end
   end

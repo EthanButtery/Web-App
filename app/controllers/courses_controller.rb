@@ -14,7 +14,7 @@ class CoursesController < ApplicationController
   
   def search
     name = params[:search] + '%'
-    @courses = Course.where(['course_name LIKE ?', name])
+    @courses = Course.where(['course_name LIKE ? OR instructor LIKE ? OR department LIKE ? OR credits LIKE ?', name, name, name, name])
     respond_to do |format|
       format.html
       format.js
