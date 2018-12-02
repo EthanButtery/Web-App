@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
   end
   
   def search
-    name = params[:search] + '%'
+    name = '%' + params[:search] + '%'
     @courses = Course.where(['course_name LIKE ? OR instructor LIKE ? OR department LIKE ? OR credits LIKE ?', name, name, name, name])
     respond_to do |format|
       format.html
