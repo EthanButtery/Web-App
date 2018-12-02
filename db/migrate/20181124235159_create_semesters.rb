@@ -5,7 +5,6 @@ class CreateSemesters < ActiveRecord::Migration[5.2]
       t.string :term
       t.integer :year
       t.integer :total_credits
-
       t.timestamps
     end
   end
