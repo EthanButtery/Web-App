@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
   end
   
   def search
-    name = params[:search] + '%'
+    name = '%' + params[:search] + '%'
     @courses = Course.where(['course_name LIKE ? OR instructor LIKE ? OR department LIKE ? OR credits LIKE ?', name, name, name, name])
     respond_to do |format|
       format.html
@@ -46,7 +46,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to '/courses' }
+        format.html { redirect_to '/semesters' }
         flash[:success] = 'Course successfully created'
         format.json { render :show, status: :created, location: @course }
       else
@@ -76,7 +76,7 @@ class CoursesController < ApplicationController
   def destroy
     @course.destroy
     respond_to do |format|
-      format.html { redirect_to courses_url }
+      format.html { redirect_to semesters_url }
       flash[:success] = 'Course successfully destroyed'
       format.json { head :no_content }
     end

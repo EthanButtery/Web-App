@@ -42,9 +42,8 @@
           </td>
           <th>
             <div>
-              <%= link_to 'Show', semester, :class => "btn btn-light"%>
               <%= link_to 'Edit', edit_semester_path(semester),:class => "btn btn-light"%>
-              <%= link_to 'Destroy', semester, method: :delete, data: { confirm: 'Are you sure?' },:class => "btn btn-light" %>
+              <%= link_to 'Delete', semester, method: :delete, data: { confirm: 'Are you sure?' },:class => "btn btn-light" %>
             </div>
           </th>
         </tr>
@@ -63,9 +62,9 @@
             <td><%= course.instructor %></td>
             <td><%= course.credits %></td>
             <td><%= course.grade %></td>
-            <td><%= link_to 'Show', course, :class => "btn btn-light"%>
-              <%= link_to 'Edit', edit_course_path(semester),:class => "btn btn-light"%>
-              <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' },:class => "btn btn-light" %></td>
+            <td>
+              <%= link_to 'Edit', edit_course_path(course),:class => "btn btn-light"%>
+              <%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' },:class => "btn btn-light" %></td>
           </tr>
         <% end %>
     <% end %>
